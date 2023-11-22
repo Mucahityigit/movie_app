@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 
 const MovieSwiper = ({ slides, slideChange }) => {
+  const IMG_URL_POINT = "https://image.tmdb.org/t/p/original";
   return (
     <Swiper
       effect={"coverflow"}
@@ -29,12 +30,12 @@ const MovieSwiper = ({ slides, slideChange }) => {
       modules={[Autoplay, EffectCoverflow]}
       className="movieSwiper"
     >
-      {slides.map((slide) => (
-        <SwiperSlide key={slide._id}>
+      {slides?.map((slide) => (
+        <SwiperSlide key={slide.id}>
           <img
-            src={slide.previewImg}
+            src={`${IMG_URL_POINT + slide.poster_path}`}
             alt="Preview Image"
-            onClick={() => slideChange(slide._id)}
+            onClick={() => slideChange(slide.id)}
           />
         </SwiperSlide>
       ))}

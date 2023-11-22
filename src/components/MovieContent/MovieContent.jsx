@@ -3,10 +3,11 @@ import "./movieContent.css";
 import titleImg from "../../assets/images/transformer-title.png";
 import Button from "../Button/Button";
 
-const MovieContent = ({ movie }) => {
+const MovieContent = ({ movie, movieID }) => {
   return (
-    <div className={`content ${movie.active ? "active" : undefined}`}>
-      <img src={movie.titleImg} alt="Movie Title" className="movie-title" />
+    <div className={`content ${movie.id == movieID ? "active" : undefined}`}>
+      {/* <img src={movie.titleImg} alt="Movie Title" className="movie-title" /> */}
+      <span className="movie-original-title">{movie.original_title}</span>
       <h4>
         <span>{movie.year}</span>
         <span>

@@ -19,6 +19,13 @@
   margin-bottom: 20px;
 }
 
+.movie-original-title {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
 .banner .content h4 {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
