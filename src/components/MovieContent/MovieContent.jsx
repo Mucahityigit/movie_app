@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./movieContent.css";
 import titleImg from "../../assets/images/transformer-title.png";
 import Button from "../Button/Button";
 
-const MovieContent = ({ movie, movieID }) => {
+const MovieContent = ({ movie, movieID, genres }) => {
+  const [genreData, setGenreData] = useState([]);
+
+  let getGenres = [];
+  genres.map((genre)=>{
+    if(movie.genre_ids.includes(genre.id)){
+       getGenres.push(genre.name)
+    }
+  })
+  
+  useEffect(()=>{
+    setGenreData(getGenres);
+  },[])
+
+
+console.log(movie)
+
   return (
     <div className={`content ${movie.id == movieID ? "active" : undefined}`}>
       {/* <img src={movie.titleImg} alt="Movie Title" className="movie-title" /> */}
       <span className="movie-original-title">{movie.original_title}</span>
       <h4>
-        <span>{movie.year}</span>
+        <span>{movie.release_date}</span>
         <span>
           <i>{movie.ageLimit}</i>
         </span>
         <span>{movie.length}</span>
-        <span>{movie.category}</span>
+         {genreData.map((genre,index)=>(
+
+          <span key={index} >{genre + ","}</span>
+         ))}
       </h4>
       <p>{movie.description}</p>
       <div className="button">
