@@ -2,24 +2,39 @@ import React, { useEffect, useState } from "react";
 import "./movieContent.css";
 import Button from "../Button/Button";
 
-const MovieContent = ({ movieDetail, movieID }) => {
-  console.log(movieDetail);
+const MovieContent = ({ movie, movieID,genres }) => {
+  
+  const [genresDetail,setGenresDetail] = useState([])
+
+  let filterGenres = [];
+  if(movie.id===movieID){
+    genres.genres.map(genre=>{
+      if(movie.genre_ids.includes(genre.id)){
+       filterGenres.push(genre.name)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    setGenresDetail(filterGenres)
+  },[movieID])
+
   return (
     <div
-      className={`content ${movieDetail.id === movieID ? "active" : undefined}`}
+      className={`content ${movie.id === movieID ? "active" : undefined}`}
     >
-      <span className="movie-original-title">{movieDetail.original_title}</span>
+      <span className="movie-original-title">{movie.original_title}</span>
       <h4>
-        <span>{movieDetail.release_date}</span>
+        <span>{movie.release_date}</span>
         <span>
-          <i>{movieDetail.ageLimit}</i>
+          <i>{movie.ageLimit}</i>
         </span>
-        {<span>{movieDetail.length}</span>}
-        {Object.entries(movieDetail.genres).map((genre, index) => (
-          <span key={index}>{Object.entries(genre[1])[1][1] + ","}</span>
+        {<span>{movie.length}</span>}
+        {genresDetail.map((genre, index) => (
+          <span key={index}>{genre + ","}</span>
         ))}
       </h4>
-      <p>{movieDetail.description}</p>
+      <p>{movie.description}</p>
       <div className="button">
         <Button
           icon={<ion-icon name="bookmark-outline"></ion-icon>}

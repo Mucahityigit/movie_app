@@ -4,51 +4,22 @@ import MovieContent from "../../components/MovieContent/MovieContent";
 import MovieDate from "../../components/MovieDate/MovieDate";
 import PlayBtn from "../../components/PlayBtn/PlayBtn";
 import MovieSwiper from "../../components/MovieSwiper/MovieSwiper";
+import {useDispatch, useSelector } from "react-redux";
+import { getGenres, getMovieDetails, getMovies } from "../../redux/movieSlice";
 const Banner = () => {
-  const [movies, setMovies] = useState([]);
-  const [movieID, setMovieID] = useState(937249);
-  const [movieDetail, setMovieDetail] = useState([]);
-
+  const [movieID, setMovieID] = useState();
+  const dispatch = useDispatch();
+  const {movies,genres} = useSelector(state=>state.movies)
   const IMG_URL_POINT = "https://image.tmdb.org/t/p/original";
-  const fatchData = async () => {
-    const url =
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNTk1NTM5YzExOWQ4YmRkNjc0MDQ5NTI0MDIxODZkZSIsInN1YiI6IjY1NWMzMmY5MTA5MjMwMDEzOGM3ZTQzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.68uCRBqGm9ARFy_eNGjmSK3ZVGh_rRWq1IjQPxNdYxo",
-      },
-    };
-    await fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => setMovies(Object.entries(data)[2][1]))
-      .catch((err) => console.error("error:" + err));
-  };
-  const getMovieDetail = async (movie_id) => {
-    const url = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNTk1NTM5YzExOWQ4YmRkNjc0MDQ5NTI0MDIxODZkZSIsInN1YiI6IjY1NWMzMmY5MTA5MjMwMDEzOGM3ZTQzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.68uCRBqGm9ARFy_eNGjmSK3ZVGh_rRWq1IjQPxNdYxo",
-      },
-    };
 
-    await fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => setMovieDetail(data))
-      .catch((err) => console.error("error:" + err));
-  };
   useEffect(() => {
-    fatchData();
-    getMovieDetail(movieID);
+    dispatch(getMovies())
+    dispatch(getMovieDetails(movieID))
+    dispatch(getGenres())
   }, []);
   const handleSlideChange = (id) => {
     setMovieID(id);
-    getMovieDetail(id);
+    dispatch(getMovieDetails(id))
   };
 
   return (
@@ -65,11 +36,11 @@ const Banner = () => {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-6 col-md-12">
-                  <MovieContent movieDetail={movieDetail} movieID={movieID} />
+                  <MovieContent movie={movie} movieID={movieID} genres={genres} />
                 </div>
                 <div className="col-lg-6 col-md-12">
-                  <MovieDate movie={movie} />
-                  <PlayBtn movie={movie} />
+                  <MovieDate movie={movie}  movieID={movieID} />
+                  <PlayBtn movie={movie}  movieID={movieID} />
                 </div>
               </div>
             </div>

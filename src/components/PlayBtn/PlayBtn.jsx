@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CiPlay1 } from "react-icons/ci";
 import "./playBtn.css";
 import Modal from "../Modal/Modal";
-const PlayBtn = ({ movie }) => {
+const PlayBtn = ({ movie,movieID }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -10,14 +10,14 @@ const PlayBtn = ({ movie }) => {
   };
   return (
     <>
-      <div className={`trailer ${movie.active ? "active" : undefined}`}>
+      <div className={`trailer ${movie.id === movieID ? "active" : undefined}`}>
         <a href="#" className="playBtn" onClick={toggleModal}>
           <CiPlay1 className="playIcon" />
         </a>
         <p>Watch Trailer</p>
       </div>
-      {movie.active && (
-        <Modal movie={movie} status={modal} toggleModal={toggleModal} />
+      {movie.id===movieID && (
+        <Modal movie={movie} movieID={movieID} status={modal} toggleModal={toggleModal} />
       )}
     </>
   );

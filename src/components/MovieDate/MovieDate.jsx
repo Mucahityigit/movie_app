@@ -1,9 +1,9 @@
 import React from "react";
 import "./movieDate.css";
-const MovieDate = ({ movie }) => {
+const MovieDate = ({ movie,movieID }) => {
   return (
-    <div className={`date ${movie.active ? "active" : undefined}`}>
-      <h2>on {movie.date}</h2>
+    <div className={`date ${movie.id === movieID ? "active" : undefined}`}>
+      <h2>{movie.release_date}</h2>
     </div>
   );
 };
