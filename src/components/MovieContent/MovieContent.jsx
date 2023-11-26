@@ -1,41 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./movieContent.css";
-import titleImg from "../../assets/images/transformer-title.png";
 import Button from "../Button/Button";
 
-const MovieContent = ({ movie, movieID, genres }) => {
-  const [genreData, setGenreData] = useState([]);
-
-  let getGenres = [];
-  genres.map((genre)=>{
-    if(movie.genre_ids.includes(genre.id)){
-       getGenres.push(genre.name)
-    }
-  })
-  
-  useEffect(()=>{
-    setGenreData(getGenres);
-  },[])
-
-
-console.log(movie)
-
+const MovieContent = ({ movieDetail, movieID }) => {
+  console.log(movieDetail);
   return (
-    <div className={`content ${movie.id == movieID ? "active" : undefined}`}>
-      {/* <img src={movie.titleImg} alt="Movie Title" className="movie-title" /> */}
-      <span className="movie-original-title">{movie.original_title}</span>
+    <div
+      className={`content ${movieDetail.id === movieID ? "active" : undefined}`}
+    >
+      <span className="movie-original-title">{movieDetail.original_title}</span>
       <h4>
-        <span>{movie.release_date}</span>
+        <span>{movieDetail.release_date}</span>
         <span>
-          <i>{movie.ageLimit}</i>
+          <i>{movieDetail.ageLimit}</i>
         </span>
-        <span>{movie.length}</span>
-         {genreData.map((genre,index)=>(
-
-          <span key={index} >{genre + ","}</span>
-         ))}
+        {<span>{movieDetail.length}</span>}
+        {Object.entries(movieDetail.genres).map((genre, index) => (
+          <span key={index}>{Object.entries(genre[1])[1][1] + ","}</span>
+        ))}
       </h4>
-      <p>{movie.description}</p>
+      <p>{movieDetail.description}</p>
       <div className="button">
         <Button
           icon={<ion-icon name="bookmark-outline"></ion-icon>}
