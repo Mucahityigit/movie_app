@@ -5,21 +5,24 @@ import MovieDate from "../../components/MovieDate/MovieDate";
 import PlayBtn from "../../components/PlayBtn/PlayBtn";
 import MovieSwiper from "../../components/MovieSwiper/MovieSwiper";
 import {useDispatch, useSelector } from "react-redux";
-import { getGenres, getMovieDetails, getMovies } from "../../redux/movieSlice";
+import { getGenres, getMovieImage, getMovies } from "../../redux/movieSlice";
 const Banner = () => {
   const [movieID, setMovieID] = useState();
   const dispatch = useDispatch();
-  const {movies,genres} = useSelector(state=>state.movies)
+  const {movies,genres,movieImage} = useSelector(state=>state.movies)
   const IMG_URL_POINT = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    dispatch(getMovies())
-    dispatch(getMovieDetails(movieID))
     dispatch(getGenres())
-  }, []);
+    dispatch(getMovies())
+  }, [dispatch]);
+
+  useEffect(()=>{
+    dispatch(getMovieImage(movieID))
+  },[movieID])
+  
   const handleSlideChange = (id) => {
     setMovieID(id);
-    dispatch(getMovieDetails(id))
   };
 
   return (
@@ -36,7 +39,7 @@ const Banner = () => {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-6 col-md-12">
-                  <MovieContent movie={movie} movieID={movieID} genres={genres} />
+                  <MovieContent movie={movie} movieID={movieID} genres={genres} movieImage={movieImage} />
                 </div>
                 <div className="col-lg-6 col-md-12">
                   <MovieDate movie={movie}  movieID={movieID} />

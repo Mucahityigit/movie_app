@@ -35,15 +35,17 @@ const Modal = ({ movie, status, toggleModal,movieID }) => {
       <a href="#" className="modalClose" onClick={toggleModal}>
         <ion-icon name="close-outline"></ion-icon>
       </a>
-      <iframe
-        width="1280"
-        height="720"
-       src={`https://www.youtube.com/embed/${youtubeKey}`}
-        title={`${movie.original_title}| Official Trailer`}
-        frameborder="0"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
+      {status && 
+          <iframe
+          width="1280"
+          height="720"
+        src={`https://www.youtube.com/embed/${youtubeKey}`}
+          title={`${movie.original_title}| Official Trailer`}
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      }
     </div>
   );
 };

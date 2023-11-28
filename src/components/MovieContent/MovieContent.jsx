@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./movieContent.css";
 import Button from "../Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovieImage } from "../../redux/movieSlice";
 
-const MovieContent = ({ movie, movieID,genres }) => {
-  
+const MovieContent = ({ movie, movieID,genres,movieImage }) => {
   const [genresDetail,setGenresDetail] = useState([])
 
   let filterGenres = [];
@@ -19,11 +20,16 @@ const MovieContent = ({ movie, movieID,genres }) => {
     setGenresDetail(filterGenres)
   },[movieID])
 
+
   return (
     <div
       className={`content ${movie.id === movieID ? "active" : undefined}`}
     >
-      <span className="movie-original-title">{movie.original_title}</span>
+      {movieImage.logos &&
+       movieImage.logos.length > 0 ?
+        <img className="movie-title" src={`https://image.tmdb.org/t/p/original/${movieImage.logos[0].file_path}`} alt="" /> :
+        <span className="movie-original-title">{movie.original_title}</span>
+      }
       <h4>
         <span>{movie.release_date}</span>
         <span>

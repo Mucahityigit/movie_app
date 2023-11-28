@@ -47,6 +47,14 @@ section p {
   letter-spacing: 1px;
   margin-bottom: 40px;
 }
+.schedule .categoryNull{
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+}
 
 .schedule .filters {
   display: flex;
