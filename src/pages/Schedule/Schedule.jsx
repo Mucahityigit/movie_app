@@ -12,6 +12,8 @@ const Schedule = () => {
 
   useEffect(() => {
     dispatch(getTopRatedMovies());
+  }, []);
+  useEffect(() => {
     setFilterMovies(topRatedMovies);
   }, [topRatedMovies]);
 

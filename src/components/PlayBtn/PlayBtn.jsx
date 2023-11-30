@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CiPlay1 } from "react-icons/ci";
 import "./playBtn.css";
 import Modal from "../Modal/Modal";
-const PlayBtn = ({ movie,movieID }) => {
+const PlayBtn = ({ movie, movieID }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -16,8 +16,13 @@ const PlayBtn = ({ movie,movieID }) => {
         </a>
         <p>Watch Trailer</p>
       </div>
-      {movie.id===movieID && (
-        <Modal movie={movie} movieID={movieID} status={modal} toggleModal={toggleModal} />
+      {movie.id === movieID && (
+        <Modal
+          movie={movie}
+          movieID={movieID}
+          status={modal}
+          toggleModal={toggleModal}
+        />
       )}
     </>
   );

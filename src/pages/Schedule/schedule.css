@@ -6,6 +6,7 @@ section {
   transition: ease-in-out 1s;
   transform-origin: bottom;
   z-index: 1100;
+  background: #00050d;
 }
 section h1 {
   font-weight: 400;

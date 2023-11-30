@@ -8,10 +8,10 @@
 }
 
 :root {
-  --primary: #ff3700;
+  /*rgb(226, 59, 109)*/
+  --primary: #cd5c08;
 }
 body {
-  background-color: #000000;
   font-family: "roboto", sans-serif;
 }
 

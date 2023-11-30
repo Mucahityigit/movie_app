@@ -39,7 +39,7 @@ const Banner = () => {
           <div className="movie" key={movie.id}>
             <img
               src={`${IMG_URL_POINT + movie.backdrop_path}`}
-              alt="Bacground Image"
+              alt=""
               className={`bgImg ${movie.id === movieID ? "active" : undefined}`}
             />
             <div className="container-fluid">

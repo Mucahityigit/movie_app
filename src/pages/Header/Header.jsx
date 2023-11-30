@@ -5,9 +5,9 @@ import "./header.css";
 import Search from "../../components/Search/Search";
 import Button from "../../components/Button/Button";
 
-const Header = () => {
+const Header = ({ scroll }) => {
   return (
-    <header>
+    <header className={`${scroll > 100 ? "scrolled" : undefined}`}>
       <a href="/" className="logo">
         Cinema
       </a>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./button.css";
-const Button = ({ icon, name, color = "#fff", bgColor = "#ff3700" }) => {
+const Button = ({ icon, name, color = "#fff", bgColor = "var(--primary)" }) => {
   return (
     <a
       href="#"
