@@ -2,32 +2,34 @@ import React, { useState, useEffect } from "react";
 import "./schedule.css";
 import Card from "../../components/Card/Card";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getTopRatedMovies } from "../../redux/movieSlice";
 
 const Schedule = () => {
-  const {genres,movies} = useSelector(state=>state.movies)
+  const dispatch = useDispatch();
+  const { genres, topRatedMovies } = useSelector((state) => state.movies);
   const [filterMovies, setFilterMovies] = useState([]);
 
-
   useEffect(() => {
-      setFilterMovies(movies);
-  }, [movies]);
-
+    dispatch(getTopRatedMovies());
+    setFilterMovies(topRatedMovies);
+  }, [topRatedMovies]);
 
   const handleFilterMovie = (category) => {
     let filters = [];
     if (category === 0) {
-      setFilterMovies(movies);
+      setFilterMovies(topRatedMovies);
       return;
-    }else{
-      movies.map((movie) => {
-        if(movie.genre_ids.includes(category)){
+    } else {
+      topRatedMovies.map((movie) => {
+        if (movie.genre_ids.includes(category)) {
           filters.push(movie);
         }
-      })
+      });
       setFilterMovies(filters);
     }
   };
- console.log(filterMovies)
+  console.log(filterMovies);
   return (
     <section id="schedule" className="schedule">
       <div className="container-fluid">
@@ -37,13 +39,10 @@ const Schedule = () => {
       </div>
       <div className="row">
         <ul className="filters">
-        <li className={`active`}
-            onClick={() => handleFilterMovie(0)}
-        >
-          ALL
-        </li>
-          {
-            Object.entries(genres) &&
+          <li className={`active`} onClick={() => handleFilterMovie(0)}>
+            ALL
+          </li>
+          {Object.entries(genres) &&
             Object.entries(genres).length > 0 &&
             Object.entries(genres)[0][1].map((genre) => (
               <li
@@ -53,19 +52,20 @@ const Schedule = () => {
               >
                 {genre.name}
               </li>
-          ))}
+            ))}
         </ul>
       </div>
       <div className="row mt-5">
-        {filterMovies &&
-          filterMovies.length > 0 ?
-          filterMovies.map((movie) => <Card key={movie.id} movie={movie} />) :
-          <span className="categoryNull">There are no movies in this category.</span>
-        }
+        {filterMovies && filterMovies.length > 0 ? (
+          filterMovies.map((movie) => <Card key={movie.id} movie={movie} />)
+        ) : (
+          <span className="categoryNull">
+            There are no movies in this category.
+          </span>
+        )}
       </div>
     </section>
   );
 };
 
 export default Schedule;
-

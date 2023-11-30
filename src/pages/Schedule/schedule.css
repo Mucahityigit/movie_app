@@ -47,7 +47,7 @@ section p {
   letter-spacing: 1px;
   margin-bottom: 40px;
 }
-.schedule .categoryNull{
+.schedule .categoryNull {
   display: block;
   width: 100%;
   height: 100%;
@@ -65,12 +65,14 @@ section p {
 
 .schedule .filters li {
   color: #fff;
-  padding: 10px 25px;
+  padding: 8px 10px;
   background: #191919;
+  font-size: 0.8rem;
   transition: 0.3s;
   list-style: none;
   text-transform: uppercase;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .schedule .filters li:hover,

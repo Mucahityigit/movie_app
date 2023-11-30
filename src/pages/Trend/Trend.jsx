@@ -6,18 +6,16 @@ import "swiper/css/pagination";
 
 import { Autoplay } from "swiper/modules";
 import TrendCard from "../../components/TrendCard/TrendCard";
+import { useDispatch } from "react-redux";
+import { getUpcomingMovies } from "../../redux/movieSlice";
+import { useSelector } from "react-redux";
 const Trend = () => {
-  const [slides, setSlides] = useState([]);
-  const fatchData = () => {
-    fetch("http://localhost:5173/data/movieData.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data))
-      .catch((e) => console.log(e.message));
-  };
+  const dispatch = useDispatch();
+  const { upcomingMovies } = useSelector((state) => state.movies);
 
   useEffect(() => {
-    fatchData();
-  }, []);
+    dispatch(getUpcomingMovies());
+  }, [dispatch]);
 
   return (
     <section id="trend" className="trend">
@@ -54,11 +52,11 @@ const Trend = () => {
             modules={[Autoplay]}
             className="trendSwiper"
           >
-            {slides &&
-              slides.length > 0 &&
-              slides.map((slide) => (
-                <SwiperSlide key={slide._id}>
-                  <TrendCard slide={slide} />
+            {upcomingMovies &&
+              upcomingMovies.length > 0 &&
+              upcomingMovies.map((movie) => (
+                <SwiperSlide key={movie.id}>
+                  <TrendCard slide={movie} />
                 </SwiperSlide>
               ))}
           </Swiper>
