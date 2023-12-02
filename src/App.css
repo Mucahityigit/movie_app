@@ -8,8 +8,7 @@
 }
 
 :root {
-  /*rgb(226, 59, 109)*/
-  --primary: #cd5c08;
+  --primary: #1A98FF;
 }
 body {
   font-family: "roboto", sans-serif;

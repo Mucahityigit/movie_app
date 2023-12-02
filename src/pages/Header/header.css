@@ -33,3 +33,30 @@ header.scrolled {
 .nav {
   display: flex;
 }
+
+.favoriteList{
+  display: flex;
+  gap: 20px;
+  font-size: 30px;
+  color: white;
+}
+.favoriteList .list,
+.favoriteList .bookmark
+{
+  position: relative;
+  cursor: pointer;
+}
+
+.favoriteList span{
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1A98FF;
+  font-size: 13px;
+}

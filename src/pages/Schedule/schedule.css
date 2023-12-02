@@ -1,6 +1,5 @@
 section {
   position: relative;
-  overflow: hidden;
   padding: 120px 100px 20px;
   width: 100%;
   transition: ease-in-out 1s;
@@ -67,7 +66,7 @@ section p {
 .schedule .filters li {
   color: #fff;
   padding: 8px 10px;
-  background: #191919;
+  background: var(--primary);
   font-size: 0.8rem;
   transition: 0.3s;
   list-style: none;
@@ -76,7 +75,11 @@ section p {
   border-radius: 3px;
 }
 
-.schedule .filters li:hover,
-.schedule .filters li.active {
-  background: var(--primary);
+.schedule .filters li:hover{
+  background: #222831;
+}
+.schedule .movie-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }

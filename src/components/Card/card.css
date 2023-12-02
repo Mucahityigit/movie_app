@@ -1,24 +1,18 @@
 section .movie-card {
+  width: 324px;
+  height: auto;
   border: none;
   position: relative;
-  border-radius: 0;
-  background: #000 !important;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
-  transition: 0.5s;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor:pointer;
 }
 
-section .movie-card::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
-  transform: scale(0);
+section .movie-card .img-fluid{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 section .movie-card p {
@@ -35,15 +29,17 @@ section .movie-card .content {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius:10px;
+  background-color: #222831ed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 30px 15px;
   color: #fff;
   opacity: 0;
   visibility: hidden;
-  transition: 0.5s;
-  transform: scale(0);
+  transition: 0.2s;
 }
 
 section .movie-card .content h4 {
@@ -70,19 +66,22 @@ section .movie-card .content h4::before {
   );
   z-index: 1000;
 }
+
 section .movie-card .content ion-icon {
   font-size: 2.5rem;
   transition: 0.3s;
   cursor: pointer;
+  margin: 0px 10px;
 }
 
 section .movie-card .content ion-icon:hover {
   color: var(--primary);
 }
 
-section .movie-card:hover .content,
-section .movie-card:hover::before {
+section .movie-card:hover .content
+ {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  z-index: 1000;
 }
+

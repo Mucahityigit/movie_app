@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./modal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieVideo } from "../../redux/movieSlice";
-import { object } from "prop-types";
 
 const Modal = ({ movie, status, toggleModal,movieID }) => {
   const [youtubeKey,setYoutubeKey] = useState(null)

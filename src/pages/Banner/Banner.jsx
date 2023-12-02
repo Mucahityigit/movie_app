@@ -38,7 +38,7 @@ const Banner = () => {
         popularMovies.map((movie) => (
           <div className="movie" key={movie.id}>
             <img
-              src={`${IMG_URL_POINT + movie.backdrop_path}`}
+              src={`${movie.backdrop_path ? IMG_URL_POINT + movie.backdrop_path : IMG_URL_POINT + movie.poster_path}`}
               alt=""
               className={`bgImg ${movie.id === movieID ? "active" : undefined}`}
             />

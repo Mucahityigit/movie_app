@@ -31,7 +31,6 @@ const Schedule = () => {
       setFilterMovies(filters);
     }
   };
-  console.log(filterMovies);
   return (
     <section id="schedule" className="schedule">
       <div className="container-fluid">
@@ -57,7 +56,7 @@ const Schedule = () => {
             ))}
         </ul>
       </div>
-      <div className="row mt-5">
+      <div className="mt-5 movie-card-container">
         {filterMovies && filterMovies.length > 0 ? (
           filterMovies.map((movie) => <Card key={movie.id} movie={movie} />)
         ) : (
