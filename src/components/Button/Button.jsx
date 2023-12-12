@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./button.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setBookmark, setBookmarkCount, setList, setListCount } from "../../redux/listOperationsSlice";
+import { setBookmark, setList } from "../../redux/listOperationsSlice";
 const Button = ({ icon, name, color = "#fff", bgColor = "var(--primary)",movieID }) => {
   const dispatch = useDispatch();
   const {bookmark,list} = useSelector(state=>state.listOperations)
@@ -15,13 +15,11 @@ const Button = ({ icon, name, color = "#fff", bgColor = "var(--primary)",movieID
   const setListOperations = ()=>{
     if(!bookmark.includes(movieID)){
       if(name == "Book"){
-        dispatch(setBookmarkCount())
         dispatch(setBookmark(movieID))
       }
     }
     if(!list.includes(movieID)){
       if(name == "my list"){
-        dispatch(setListCount())
         dispatch(setList(movieID))
        }
     }
