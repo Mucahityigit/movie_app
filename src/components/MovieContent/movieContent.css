@@ -67,11 +67,11 @@
 
 @media only screen and (max-width: 600px) {
   .movie-title {
-    max-width: 200px;
+    max-width: 130px;
   }
 
   .movie-original-title {
-    font-size: 24px;
+    font-size: 22px;
   }
   .banner .content h4 {
     font-size: 20px;
