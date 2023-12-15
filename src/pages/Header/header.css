@@ -71,7 +71,6 @@ header.scrolled {
     font-size: 25px;
   }
   .nav {
-    display: flex;
-    font-size: 14px;
+    display: none;
   }
 }
