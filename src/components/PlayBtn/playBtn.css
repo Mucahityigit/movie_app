@@ -72,8 +72,8 @@
 @media only screen and (max-width: 600px) {
   .banner .trailer {
     position: absolute;
-    bottom: 36%;
-    right: 20%;
+    bottom: -5px;
+    right: 60px;
   }
   .banner .trailer p {
     display: none;
