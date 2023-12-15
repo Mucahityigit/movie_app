@@ -46,8 +46,8 @@ export const getUpcomingMovies = createAsyncThunk(
 );
 export const getTopRatedMovies = createAsyncThunk(
   "gettopratedmovies",
-  async () => {
-    const url = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`;
+  async (pageNumber) => {
+    const url = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${pageNumber}`;
     const options = {
       method: "GET",
       headers: {

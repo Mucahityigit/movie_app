@@ -11,13 +11,12 @@ import {
   getPopularMovies,
 } from "../../redux/movieSlice";
 const Banner = () => {
-  const [movieID, setMovieID] = useState();
-  const dispatch = useDispatch();
   const { popularMovies, genres, movieImage } = useSelector(
     (state) => state.movies
   );
+  const [movieID, setMovieID] = useState(466420);
+  const dispatch = useDispatch();
   const IMG_URL_POINT = "https://image.tmdb.org/t/p/original";
-
   useEffect(() => {
     dispatch(getGenres());
     dispatch(getPopularMovies());
@@ -38,7 +37,11 @@ const Banner = () => {
         popularMovies.map((movie) => (
           <div className="movie" key={movie.id}>
             <img
-              src={`${movie.backdrop_path ? IMG_URL_POINT + movie.backdrop_path : IMG_URL_POINT + movie.poster_path}`}
+              src={`${
+                movie.backdrop_path
+                  ? IMG_URL_POINT + movie.backdrop_path
+                  : IMG_URL_POINT + movie.poster_path
+              }`}
               alt=""
               className={`bgImg ${movie.id === movieID ? "active" : undefined}`}
             />

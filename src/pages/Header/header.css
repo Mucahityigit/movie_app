@@ -12,7 +12,7 @@ header {
 }
 
 header.scrolled {
-  background: rgba(0, 0, 0, 0.6);
+  background: #00050d8c;
   border-bottom: 2px solid var(--primary);
   border-image: linear-gradient(90deg, transparent, var(--primary), transparent)
     30;
@@ -34,20 +34,19 @@ header.scrolled {
   display: flex;
 }
 
-.favoriteList{
+.favoriteList {
   display: flex;
   gap: 20px;
   font-size: 30px;
   color: white;
 }
 .favoriteList .list,
-.favoriteList .bookmark
-{
+.favoriteList .bookmark {
   position: relative;
   cursor: pointer;
 }
 
-.favoriteList span{
+.favoriteList span {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -57,6 +56,22 @@ header.scrolled {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #1A98FF;
+  background: #1a98ff;
   font-size: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 30px 20px;
+  }
+  header.scrolled {
+    padding: 10px;
+  }
+  .logo {
+    font-size: 25px;
+  }
+  .nav {
+    display: flex;
+    font-size: 14px;
+  }
 }

@@ -75,11 +75,22 @@ section p {
   border-radius: 3px;
 }
 
-.schedule .filters li:hover{
+.schedule .filters li:hover {
   background: #222831;
 }
-.schedule .movie-card-container{
+.schedule .movie-card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.activePage {
+  background-color: var(--primary) !important;
+  color: #00050d !important;
+}
+
+@media only screen and (max-width: 600px) {
+  section {
+    padding: 20px 10px;
+  }
 }

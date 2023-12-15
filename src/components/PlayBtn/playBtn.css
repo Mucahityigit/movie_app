@@ -68,3 +68,22 @@
     filter: blur(10px);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .banner .trailer {
+    position: absolute;
+    bottom: 36%;
+    right: 20%;
+  }
+  .banner .trailer p {
+    display: none;
+  }
+  .banner .playBtn {
+    width: 50px;
+    height: 50px;
+    backdrop-filter: blur(0);
+  }
+  .banner .playBtn::before {
+    display: none;
+  }
+}

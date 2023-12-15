@@ -5,10 +5,11 @@ section .movie-card {
   position: relative;
   border-radius: 10px;
   transition: 0.3s;
-  cursor:pointer;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-section .movie-card .img-fluid{
+section .movie-card .img-fluid {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -28,9 +29,9 @@ section .movie-card .content {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  border-radius:10px;
-  background-color: #222831ed;
+  height: 0;
+  border-radius: 10px;
+  background-color: #222831f6;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +40,7 @@ section .movie-card .content {
   color: #fff;
   opacity: 0;
   visibility: hidden;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 section .movie-card .content h4 {
@@ -78,10 +79,9 @@ section .movie-card .content ion-icon:hover {
   color: var(--primary);
 }
 
-section .movie-card:hover .content
- {
+section .movie-card:hover .content {
+  height: 100%;
   opacity: 1;
   visibility: visible;
   z-index: 1000;
 }
-

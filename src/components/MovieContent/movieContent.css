@@ -61,3 +61,20 @@
   color: #ffffff;
   margin: 20px 0 30px;
 }
+
+@media only screen and (max-width: 600px) {
+  .movie-title {
+    max-width: 200px;
+  }
+
+  .movie-original-title {
+    font-size: 24px;
+  }
+  .banner .content h4 {
+    font-size: 20px;
+  }
+  .banner .content p {
+    font-size: 1em;
+    margin: 10px 0 10px;
+  }
+}

@@ -5,40 +5,29 @@ const initialState = {
   list: [],
 };
 
-
 export const listOperationsSlice = createSlice({
   name: "listOperations",
   initialState,
   reducers: {
-    setBookmark: (state,action) => {
-        state.bookmark.push(action.payload)
+    setBookmark: (state, action) => {
+      state.bookmark = [...state.bookmark, action.payload];
     },
-    deleteBookmark:(state,action)=>{
-        state.bookmark.filter(bookmarkId =>{
-          if(bookmarkId != action.payload){
-            return bookmarkId;
-          }
-        })
+    deleteBookmark: (state, action) => {
+      state.bookmark = state.bookmark.filter(
+        (bookmarkId) => bookmarkId !== action.payload
+      );
     },
-    setList: (state,action) => {
-        state.list.push(action.payload)
+    setList: (state, action) => {
+      state.list = [...state.list, action.payload];
     },
-    deleteList:(state,action)=>{
-      const index = state.list.indexOf(action.payload);
-      if (index > -1) { // only splice array when item is found
-        state.list.splice(index, 1); // 2nd parameter means remove one item only
-      }
-
-      // state.list.filter(listId =>{
-      //   if(listId == action.payload){
-      //     state.list.push(listId)
-      //   }
-      // })
-    }
+    deleteList: (state, action) => {
+      state.list = state.list.filter((listId) => listId !== action.payload);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setBookmark,setList,deleteBookmark,deleteList } = listOperationsSlice.actions;
+export const { setBookmark, setList, deleteBookmark, deleteList } =
+  listOperationsSlice.actions;
 
 export default listOperationsSlice.reducer;

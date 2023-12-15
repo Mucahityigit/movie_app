@@ -25,3 +25,8 @@
   -webkit-mask-clip: text, padding-box;
   -webkit-mask-composite: xor;
 }
+@media only screen and (max-width: 600px) {
+  .banner .date {
+    display: none;
+  }
+}

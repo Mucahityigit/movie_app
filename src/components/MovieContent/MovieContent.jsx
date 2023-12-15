@@ -17,7 +17,6 @@ const MovieContent = ({ movie, movieID, genres, movieImage }) => {
   useEffect(() => {
     setGenresDetail(filterGenres);
   }, [movieID]);
-
   return (
     <div className={`content ${movie.id === movieID ? "active" : undefined}`}>
       {movieImage.logos && movieImage.logos.length > 0 ? (
@@ -40,6 +39,7 @@ const MovieContent = ({ movie, movieID, genres, movieImage }) => {
           ))}
         </div>
       </h4>
+      <p>{movie.overview}</p>
       <div className="button">
         <Button
           icon={<ion-icon name="bookmark-outline"></ion-icon>}
