@@ -55,10 +55,6 @@ const Banner = () => {
                     movieImage={movieImage}
                   />
                 </div>
-                <div className="col-lg-6 col-md-12">
-                  <MovieDate movie={movie} movieID={movieID} />
-                  <PlayBtn movie={movie} movieID={movieID} />
-                </div>
               </div>
             </div>
           </div>

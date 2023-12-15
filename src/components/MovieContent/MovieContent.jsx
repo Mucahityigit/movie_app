@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./movieContent.css";
 import Button from "../Button/Button";
+import PlayBtn from "../PlayBtn/PlayBtn";
 
 const MovieContent = ({ movie, movieID, genres, movieImage }) => {
   const [genresDetail, setGenresDetail] = useState([]);
@@ -51,6 +52,7 @@ const MovieContent = ({ movie, movieID, genres, movieImage }) => {
           name="my list"
           movieID={movieID}
         />
+        <PlayBtn movie={movie} movieID={movieID} />
       </div>
     </div>
   );

@@ -59,13 +59,10 @@
 @media only screen and (max-width: 600px) {
   .banner {
     padding: 0 20px;
-    height: 95vh;
+    height: 90vh;
   }
   .banner .movie {
     padding: 0 20px;
     padding-bottom: 150px;
-  }
-  .banner .container-fluid {
-    position: relative;
   }
 }

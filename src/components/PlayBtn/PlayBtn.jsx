@@ -8,6 +8,7 @@ const PlayBtn = ({ movie, movieID }) => {
   const toggleModal = () => {
     setModal(!modal);
   };
+
   return (
     <>
       <div className={`trailer ${movie.id === movieID ? "active" : undefined}`}>

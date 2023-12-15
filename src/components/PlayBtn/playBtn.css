@@ -1,8 +1,8 @@
 .banner .trailer {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
@@ -16,6 +16,7 @@
 }
 
 .banner .trailer p {
+  display: none;
   color: var(--primary);
   font-size: 1.5rem;
   margin-left: 20px;
@@ -23,28 +24,28 @@
 }
 
 .banner .playBtn {
-  position: relative;
   color: #ffffff;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   transition: 1s;
   z-index: 1000;
-  background: transparent;
-  backdrop-filter: blur(20px);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer !important;
 }
-
+.banner .playBtn svg {
+  width: 100%;
+  height: 100%;
+}
 .banner .playBtn .playIcon {
   font-size: 4rem;
   color: var(--primary);
   cursor: pointer;
 }
 
-.banner .playBtn::before {
+/* .banner .playBtn::before {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -55,9 +56,9 @@
   border: 10px solid #ffffff;
   border-radius: 50%;
   animation: button 1.2s linear infinite;
-}
+} */
 
-@keyframes button {
+/* @keyframes button {
   0%,
   100% {
     opacity: 0.3;
@@ -67,13 +68,11 @@
     opacity: 1;
     filter: blur(10px);
   }
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .banner .trailer {
-    position: absolute;
-    bottom: -5px;
-    right: 40px;
+    bottom: -7px;
   }
   .banner .trailer p {
     display: none;
