@@ -80,4 +80,7 @@
     font-size: 1em;
     margin: 10px 0 10px;
   }
+  .banner .content p {
+    font-size: 0.9em;
+  }
 }

@@ -5,6 +5,7 @@ import "./header.css";
 import { CiViewList, CiBookmark } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import HeaderModal from "../../components/HeaderModal/HeaderModal";
+import logo from "../../assets/images/logo.png";
 
 const Header = ({ scroll }) => {
   const [listModal, setListModal] = useState(false);
@@ -22,7 +23,7 @@ const Header = ({ scroll }) => {
   return (
     <header className={`${scroll > 100 ? "scrolled" : undefined}`}>
       <a href="/" className="logo">
-        Cinema
+        <img src={logo} alt="" />
       </a>
       <ul className="nav">
         {navListData.map((nav) => (

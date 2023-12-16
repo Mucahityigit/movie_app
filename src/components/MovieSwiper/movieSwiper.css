@@ -28,5 +28,10 @@
 @media only screen and (max-width: 600px) {
   .swiper {
     margin-bottom: 50px;
+    padding-bottom: 15px;
+  }
+  .swiper-slide {
+    width: 100px;
+    height: 150px;
   }
 }
