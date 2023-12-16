@@ -1,9 +1,7 @@
 main {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding: 0 0 120px;
-  background: #000;
+  min-height: auto;
 }
 
 main::before {

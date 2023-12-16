@@ -18,7 +18,15 @@
   gap: 15px;
   transition: 0.3s;
 }
-
+.trend-card ion-icon {
+  font-size: 25px;
+}
 .trend-card a:hover {
   background: #191919;
+}
+
+@media only screen and (max-width: 1000px) {
+  .trend-card a {
+    font-size: 0.8rem;
+  }
 }
