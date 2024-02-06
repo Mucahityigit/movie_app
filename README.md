@@ -8,6 +8,8 @@ What I used while doing the project;
 * Slider
 
 Demo Link: https://lnkd.in/dS2e_kN6
+
+
 ![Ekran görüntüsü 2024-02-06 164407](https://github.com/Mucahityigit/movie_app/assets/66004658/0f0a2df4-b2d0-496f-a4e8-4e6a323fa936)
 ![Ekran görüntüsü 2024-02-06 164507](https://github.com/Mucahityigit/movie_app/assets/66004658/12725307-fa88-40c3-bce3-c64c9d8d10b7)
 ![Ekran görüntüsü 2024-02-06 165504](https://github.com/Mucahityigit/movie_app/assets/66004658/a96ec2e8-42d7-4a0c-8269-33bb09852ad8)
