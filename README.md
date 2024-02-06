@@ -7,7 +7,7 @@ What I used while doing the project;
 * Redux Toolkit
 * Slider
 
-Demo Link: https://lnkd.in/dS2e_kN6
+Demo Link: https://movie-app-kappa-two-13.vercel.app/
 
 
 ![Ekran görüntüsü 2024-02-06 164407](https://github.com/Mucahityigit/movie_app/assets/66004658/0f0a2df4-b2d0-496f-a4e8-4e6a323fa936)
